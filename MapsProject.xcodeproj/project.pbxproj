@@ -12,6 +12,7 @@
 		8C1C746D1EC393CB0027A618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C746B1EC393CB0027A618 /* Main.storyboard */; };
 		8C1C746F1EC393CB0027A618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C746E1EC393CB0027A618 /* Assets.xcassets */; };
 		8C1C74721EC393CB0027A618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C74701EC393CB0027A618 /* LaunchScreen.storyboard */; };
+		8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8C1C746E1EC393CB0027A618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1C74711EC393CB0027A618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C1C74731EC393CB0027A618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple-icon-180x180.png"; path = "../../../TTT App Curriculum/4-2 MapView/apple-icon-180x180.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			children = (
 				8C1C74661EC393CB0027A618 /* MapsProject */,
 				8C1C74651EC393CB0027A618 /* Products */,
+				8C1C74791EC39F110027A618 /* Pictures */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +64,15 @@
 				8C1C74701EC393CB0027A618 /* LaunchScreen.storyboard */,
 				8C1C74731EC393CB0027A618 /* Info.plist */,
 			);
+			path = MapsProject;
+			sourceTree = "<group>";
+		};
+		8C1C74791EC39F110027A618 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */,
+			);
+			name = Pictures;
 			path = MapsProject;
 			sourceTree = "<group>";
 		};
@@ -124,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */,
 				8C1C74721EC393CB0027A618 /* LaunchScreen.storyboard in Resources */,
 				8C1C746F1EC393CB0027A618 /* Assets.xcassets in Resources */,
 				8C1C746D1EC393CB0027A618 /* Main.storyboard in Resources */,
@@ -302,6 +315,7 @@
 				8C1C74781EC393CB0027A618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
