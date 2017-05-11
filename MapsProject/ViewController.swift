@@ -17,19 +17,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tttImageView: UIImageView!
     @IBOutlet weak var mapSegmentedObject: UISegmentedControl!
+    var initialRegionSet = false
+    
+    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.mapType = .standard
+        mapView.delegate = self
+        locationManager.delegate = self
+        
         annotation.coordinate = CLLocationCoordinate2D(latitude: 40.7084257, longitude: -74.0148711)
         
         locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
+        mapView.mapType = .standard
         mapView.showsUserLocation = true
         mapView.addAnnotation(annotation)
+    }
+    
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        if fullyRendered && !initialRegionSet {
+                let viewRegion = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 300.0, 300.0)
+                mapView.setRegion(viewRegion, animated: true)
+            initialRegionSet = true
+        }
     }
 
     @IBAction func mapSegmentedAction(_ sender: UISegmentedControl) {
