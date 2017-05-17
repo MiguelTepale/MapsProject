@@ -2,34 +2,34 @@
 //  WebViewController.swift
 //  MapsProject
 //
-//  Created by Miguel Tepale on 5/16/17.
+//  Created by Miguel Tepale on 5/15/17.
 //  Copyright © 2017 Miguel Tepale. All rights reserved.
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class WebViewController: UIViewController, WKNavigationDelegate {
+    
+    var userUrl: String!
+    var currentWebView: WKWebView!
+    
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let url = URL(string: userUrl) else {
+            print("url value is nil")
+            return
+        }
+        let request = URLRequest(url: url)
+        
+        currentWebView = WKWebView(frame: self.view.frame)
+        currentWebView.navigationDelegate = self
+        currentWebView.load(request)
+        self.view.addSubview(currentWebView)
     }
-    */
-
 }

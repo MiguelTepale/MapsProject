@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0F2B0D1ECA46340059F1E6 /* clintonHill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F2B0A1ECA46340059F1E6 /* clintonHill.jpg */; };
+		8C0F2B0E1ECA46340059F1E6 /* trinityPlace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F2B0B1ECA46340059F1E6 /* trinityPlace.jpg */; };
+		8C0F2B0F1ECA46340059F1E6 /* wogies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8C0F2B0C1ECA46340059F1E6 /* wogies.jpg */; };
 		8C1C74681EC393CB0027A618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C74671EC393CB0027A618 /* AppDelegate.swift */; };
 		8C1C746A1EC393CB0027A618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C74691EC393CB0027A618 /* ViewController.swift */; };
 		8C1C746D1EC393CB0027A618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C746B1EC393CB0027A618 /* Main.storyboard */; };
 		8C1C746F1EC393CB0027A618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C746E1EC393CB0027A618 /* Assets.xcassets */; };
 		8C1C74721EC393CB0027A618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1C74701EC393CB0027A618 /* LaunchScreen.storyboard */; };
+		8CB7E3A01ECB645D00CC9720 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */; };
 		8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */; };
 		8CF1A90B1EC6138C00669559 /* BarList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A90A1EC6138C00669559 /* BarList.plist */; };
-		8CF1A90F1EC61A3800669559 /* clintonHill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A90C1EC61A3800669559 /* clintonHill.jpg */; };
-		8CF1A9101EC61A3800669559 /* trinityPlace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A90D1EC61A3800669559 /* trinityPlace.jpg */; };
-		8CF1A9111EC61A3800669559 /* wogies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A90E1EC61A3800669559 /* wogies.jpg */; };
 		8CF1A9131EC637BE00669559 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1A9121EC637BE00669559 /* Bar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0F2B0A1ECA46340059F1E6 /* clintonHill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clintonHill.jpg; sourceTree = "<group>"; };
+		8C0F2B0B1ECA46340059F1E6 /* trinityPlace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = trinityPlace.jpg; sourceTree = "<group>"; };
+		8C0F2B0C1ECA46340059F1E6 /* wogies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wogies.jpg; sourceTree = "<group>"; };
 		8C1C74641EC393CB0027A618 /* MapsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1C74671EC393CB0027A618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C1C74691EC393CB0027A618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,11 +32,9 @@
 		8C1C746E1EC393CB0027A618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1C74711EC393CB0027A618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C1C74731EC393CB0027A618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../WebViewController.swift; sourceTree = "<group>"; };
 		8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple-icon-180x180.png"; path = "../../../TTT App Curriculum/4-2 MapView/apple-icon-180x180.png"; sourceTree = "<group>"; };
 		8CF1A90A1EC6138C00669559 /* BarList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BarList.plist; sourceTree = "<group>"; };
-		8CF1A90C1EC61A3800669559 /* clintonHill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = clintonHill.jpg; path = ../../../../clintonHill.jpg; sourceTree = "<group>"; };
-		8CF1A90D1EC61A3800669559 /* trinityPlace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = trinityPlace.jpg; path = ../../../../trinityPlace.jpg; sourceTree = "<group>"; };
-		8CF1A90E1EC61A3800669559 /* wogies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wogies.jpg; path = ../../../../wogies.jpg; sourceTree = "<group>"; };
 		8CF1A9121EC637BE00669559 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,8 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				8C1C74671EC393CB0027A618 /* AppDelegate.swift */,
-				8C1C74691EC393CB0027A618 /* ViewController.swift */,
 				8CF1A9121EC637BE00669559 /* Bar.swift */,
+				8C1C74691EC393CB0027A618 /* ViewController.swift */,
+				8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */,
 				8C1C746B1EC393CB0027A618 /* Main.storyboard */,
 				8C1C746E1EC393CB0027A618 /* Assets.xcassets */,
 				8C1C74701EC393CB0027A618 /* LaunchScreen.storyboard */,
@@ -82,9 +85,9 @@
 		8C1C74791EC39F110027A618 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				8CF1A90C1EC61A3800669559 /* clintonHill.jpg */,
-				8CF1A90D1EC61A3800669559 /* trinityPlace.jpg */,
-				8CF1A90E1EC61A3800669559 /* wogies.jpg */,
+				8C0F2B0A1ECA46340059F1E6 /* clintonHill.jpg */,
+				8C0F2B0B1ECA46340059F1E6 /* trinityPlace.jpg */,
+				8C0F2B0C1ECA46340059F1E6 /* wogies.jpg */,
 				8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */,
 			);
 			name = Pictures;
@@ -152,13 +155,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */,
+				8C0F2B0E1ECA46340059F1E6 /* trinityPlace.jpg in Resources */,
 				8C1C74721EC393CB0027A618 /* LaunchScreen.storyboard in Resources */,
-				8CF1A90F1EC61A3800669559 /* clintonHill.jpg in Resources */,
+				8C0F2B0D1ECA46340059F1E6 /* clintonHill.jpg in Resources */,
 				8CF1A90B1EC6138C00669559 /* BarList.plist in Resources */,
-				8CF1A9101EC61A3800669559 /* trinityPlace.jpg in Resources */,
 				8C1C746F1EC393CB0027A618 /* Assets.xcassets in Resources */,
+				8C0F2B0F1ECA46340059F1E6 /* wogies.jpg in Resources */,
 				8C1C746D1EC393CB0027A618 /* Main.storyboard in Resources */,
-				8CF1A9111EC61A3800669559 /* wogies.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,7 @@
 				8CF1A9131EC637BE00669559 /* Bar.swift in Sources */,
 				8C1C746A1EC393CB0027A618 /* ViewController.swift in Sources */,
 				8C1C74681EC393CB0027A618 /* AppDelegate.swift in Sources */,
+				8CB7E3A01ECB645D00CC9720 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

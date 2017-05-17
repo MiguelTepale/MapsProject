@@ -18,6 +18,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tttImageView: UIImageView!
     @IBOutlet weak var mapSegmentedObject: UISegmentedControl!
+    
     var initialRegionSet = false
     
     override func viewDidLoad() {
@@ -47,6 +48,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             initialRegionSet = true
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWeb" {
+            guard let navVC = segue.destination as? UINavigationController else {
+                print("webVC is nil")
+                return
+            }
+            let webVC = navVC.topViewController as? WebViewController
+            webVC?.userUrl = "https://www.google.com"
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "barLocation") as? MKPinAnnotationView
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "barLocation")
+        } else {
+            annotationView?.annotation = annotation
+        }
+        annotationView?.pinTintColor = UIColor.blue
+        annotationView?.canShowCallout = true
+        if let place = annotation as? Bar,
+            let image = place.image {
+            let imageView = UIImageView(image: image)
+            imageView.contentMode = .scaleAspectFit
+            imageView.frame = CGRect(x: 0, y: 0, width: (annotationView?.frame.width)!, height: (annotationView?.frame.height)!)
+            annotationView?.leftCalloutAccessoryView = imageView
+            
+        }
+        return annotationView
+    }
+    
     
     func loadLocalBars() {
         guard let plistUrl = Bundle.main.url(forResource: "BarList", withExtension: "plist"), let pListData = NSData(contentsOf: plistUrl) else { return }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapsProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yo" id="BYZ-38-t0r" customClass="ViewController" customModule="MapsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,7 +25,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gcp-7k-5Aj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon-180x180.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pnm-ap-9bB" userLabel="ttt Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon-180x180.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pnm-ap-9bB" userLabel="TTT Image View">
                                 <rect key="frame" x="16" y="28" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EhJ-ww-Ygo"/>
@@ -46,12 +46,21 @@
                                             <action selector="mapSegmentedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="fsX-s2-lxC"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ti-CIK" userLabel="Internet Test Button">
+                                        <rect key="frame" x="8" y="6" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="NaM-Nb-y4s" kind="show" identifier="showWeb" id="NR3-kM-Wmo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="r1q-tl-eZ0" firstAttribute="centerY" secondItem="9a3-W4-rW5" secondAttribute="centerY" id="4ra-Oc-bjj"/>
+                                    <constraint firstItem="cMe-Ti-CIK" firstAttribute="leading" secondItem="9a3-W4-rW5" secondAttribute="leading" constant="8" id="T3g-Yo-bth"/>
                                     <constraint firstItem="r1q-tl-eZ0" firstAttribute="centerX" secondItem="9a3-W4-rW5" secondAttribute="centerX" id="b7M-xZ-lc5"/>
                                     <constraint firstAttribute="height" constant="44" id="c6i-IY-uyk"/>
+                                    <constraint firstAttribute="bottom" secondItem="cMe-Ti-CIK" secondAttribute="bottom" constant="8" id="hIg-ZF-veo"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -68,6 +77,7 @@
                             <constraint firstAttribute="trailing" secondItem="gcp-7k-5Aj" secondAttribute="trailing" id="o2K-Iw-9oW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="I5J-O0-Fvg"/>
                     <connections>
                         <outlet property="mapSegmentedObject" destination="r1q-tl-eZ0" id="Wvv-w5-NOg"/>
                         <outlet property="mapView" destination="gcp-7k-5Aj" id="9h0-FC-ezx"/>
@@ -76,7 +86,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--Webpage-->
+        <scene sceneID="eFf-G1-c7e">
+            <objects>
+                <viewController storyboardIdentifier="webView" id="YHT-p5-e7t" customClass="WebViewController" customModule="MapsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nJG-cg-mVv"/>
+                        <viewControllerLayoutGuide type="bottom" id="HPU-tU-rBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s64-kn-cGK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Webpage" id="g5N-ef-81s">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="JST-vl-Hfk">
+                            <connections>
+                                <action selector="goBack:" destination="YHT-p5-e7t" id="5mu-ln-0Yu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvk-yb-kig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848.8000000000002" y="136.28185907046478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FyG-vQ-gtN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NaM-Nb-y4s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mF6-jg-rEy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YHT-p5-e7t" kind="relationship" relationship="rootViewController" id="EaB-cg-sTE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2i-5s-Hcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909.5999999999999" y="136.28185907046478"/>
         </scene>
     </scenes>
     <resources>
