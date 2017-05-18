@@ -10,14 +10,15 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
     
     let locationManager = CLLocationManager()
     let annotation = MKPointAnnotation()
     var bars: [Bar] = []
     var tappedBarWebsite = ""
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var tttImageView: UIImageView!
+    @IBOutlet weak var tttImageView: UIImageView!    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapSegmentedObject: UISegmentedControl!
     
     var initialRegionSet = false
@@ -40,6 +41,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.addAnnotation(annotation)
         mapView.addAnnotations(bars)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        searchBar.resignFirstResponder()
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
@@ -72,9 +97,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         if control == view.rightCalloutAccessoryView {
-          
             tappedBarWebsite = tappedBar.website
             performSegue(withIdentifier: "showWeb", sender: self)
+
         }
     }
     
@@ -139,7 +164,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             }
         }
     }
-    
     
     @IBAction func mapSegmentedAction(_ sender: UISegmentedControl) {
         switch (sender.selectedSegmentIndex) {

@@ -46,42 +46,42 @@
                                             <action selector="mapSegmentedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="fsX-s2-lxC"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMe-Ti-CIK" userLabel="Internet Test Button">
-                                        <rect key="frame" x="8" y="6" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="NaM-Nb-y4s" kind="show" identifier="showWeb" id="NR3-kM-Wmo"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="r1q-tl-eZ0" firstAttribute="centerY" secondItem="9a3-W4-rW5" secondAttribute="centerY" id="4ra-Oc-bjj"/>
-                                    <constraint firstItem="cMe-Ti-CIK" firstAttribute="leading" secondItem="9a3-W4-rW5" secondAttribute="leading" constant="8" id="T3g-Yo-bth"/>
                                     <constraint firstItem="r1q-tl-eZ0" firstAttribute="centerX" secondItem="9a3-W4-rW5" secondAttribute="centerX" id="b7M-xZ-lc5"/>
                                     <constraint firstAttribute="height" constant="44" id="c6i-IY-uyk"/>
-                                    <constraint firstAttribute="bottom" secondItem="cMe-Ti-CIK" secondAttribute="bottom" constant="8" id="hIg-ZF-veo"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pDQ-xb-bhQ">
+                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pDQ-xb-bhQ" secondAttribute="trailing" id="334-WP-Va9"/>
                             <constraint firstItem="Pnm-ap-9bB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="7Vr-jB-6vZ"/>
                             <constraint firstItem="gcp-7k-5Aj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AAM-U2-gHu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9a3-W4-rW5" secondAttribute="bottom" id="Dvf-sh-oP9"/>
                             <constraint firstAttribute="trailing" secondItem="9a3-W4-rW5" secondAttribute="trailing" id="J16-sc-bHJ"/>
                             <constraint firstItem="gcp-7k-5Aj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Oi3-31-JZ3"/>
                             <constraint firstItem="Pnm-ap-9bB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QyK-nS-bGR"/>
+                            <constraint firstItem="9a3-W4-rW5" firstAttribute="top" secondItem="pDQ-xb-bhQ" secondAttribute="bottom" id="bdB-pZ-Ejl"/>
                             <constraint firstItem="9a3-W4-rW5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fvi-fv-68d"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gcp-7k-5Aj" secondAttribute="bottom" id="nB3-qy-3dH"/>
                             <constraint firstAttribute="trailing" secondItem="gcp-7k-5Aj" secondAttribute="trailing" id="o2K-Iw-9oW"/>
+                            <constraint firstItem="pDQ-xb-bhQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sfW-ls-jEZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="I5J-O0-Fvg"/>
                     <connections>
                         <outlet property="mapSegmentedObject" destination="r1q-tl-eZ0" id="Wvv-w5-NOg"/>
                         <outlet property="mapView" destination="gcp-7k-5Aj" id="9h0-FC-ezx"/>
+                        <outlet property="searchBar" destination="pDQ-xb-bhQ" id="0Oh-CA-GC4"/>
                         <outlet property="tttImageView" destination="Pnm-ap-9bB" id="xOX-PX-voQ"/>
+                        <segue destination="NaM-Nb-y4s" kind="show" identifier="showWeb" id="hf2-QC-Fnf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
