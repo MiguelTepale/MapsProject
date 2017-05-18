@@ -14,12 +14,14 @@ class Bar: NSObject {
     let name: String
     let location: CLLocation
     let image: UIImage?
+    let website: String
     
-    init(name: String, imageName: String, latitude: Double, longitude: Double) {
+    init(name: String, imageName: String, latitude: Double, longitude: Double, websiteURL: String) {
         
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.image = UIImage(named: imageName)
+        self.website = websiteURL
     }
 }
 

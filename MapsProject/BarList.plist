@@ -11,6 +11,8 @@
 		<real>40.708072</real>
 		<key>Longitude</key>
 		<real>-74.01486800000001</real>
+		<key>Website</key>
+		<string>http://www.clintonhallny.com</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -21,6 +23,8 @@
 		<real>40.707512</real>
 		<key>Longitude</key>
 		<real>-74.013392</real>
+		<key>Website</key>
+		<string>http://www.wogies.com</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -31,6 +35,8 @@
 		<real>40.709024</real>
 		<key>Longitude</key>
 		<real>-74.01152399999999</real>
+		<key>Website</key>
+		<string>http://www.trinityplacenyc.com</string>
 	</dict>
 </array>
 </plist>
