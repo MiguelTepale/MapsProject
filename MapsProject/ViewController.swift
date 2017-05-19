@@ -15,7 +15,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     let locationManager = CLLocationManager()
     let annotation = MKPointAnnotation()
     var bars: [Bar] = []
+    var newSearchEntries: [MKMapItem] = [MKMapItem]()
     var tappedBarWebsite = ""
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tttImageView: UIImageView!    
     @IBOutlet weak var searchBar: UISearchBar!
@@ -69,10 +71,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        performASearch()
+//        performASearch()
         searchBar.resignFirstResponder()
+        mapView.removeAnnotations(mapView.annotations)
+        performSearch()
     }
     
+    //This function will find local "pizza" places within the area that was previously defined. Entries will be logged to the console.
     func performASearch() {
         
         let request = MKLocalSearchRequest()
@@ -100,7 +105,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func performSearch() {
         
+        newSearchEntries.removeAll()
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = searchBar.text
+        request.region = mapView.region
         
+        let search = MKLocalSearch(request: request)
+        
+        search.start(completionHandler: {(response, error) in
+            
+            if error != nil {
+                print("Error occured in search: \(error!.localizedDescription)")
+            } else if response!.mapItems.count == 0 {
+                print("No matches found")
+            } else {
+                print("Matches found")
+                
+                for item in response!.mapItems {
+                    print("Name = \(String(describing:item.name))")
+                    print("Phone = \(String(describing:item.phoneNumber))")
+                    
+                    self.newSearchEntries.append(item as MKMapItem)
+                    print("Matching items = \(self.newSearchEntries.count)")
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = item.placemark.coordinate
+                    annotation.title = item.name
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+        })
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
