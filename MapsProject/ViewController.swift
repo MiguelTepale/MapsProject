@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate, UISearchBarDelegate {
     
     let locationManager = CLLocationManager()
     let annotation = MKPointAnnotation()
@@ -30,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         mapView.delegate = self
         locationManager.delegate = self
+        searchBar.delegate = self
         
         annotation.coordinate = CLLocationCoordinate2D(latitude: 40.7084257, longitude: -74.0148711)
         
@@ -65,6 +66,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 self.view.frame.origin.y += keyboardSize.height
             }
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performASearch()
+        searchBar.resignFirstResponder()
+    }
+    
+    func performASearch() {
+        
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "Pizza"
+        request.region = mapView.region
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start(completionHandler: {(response, error) in
+            
+            if error != nil {
+                print("Error occured in search:\(error!.localizedDescription)")
+            } else if response!.mapItems.count == 0 {
+                print("No matches found")
+            } else {
+                print("Matches found")
+                
+                for item in response!.mapItems {
+                    print("Name = \(String(describing: item.name))")
+                    print("Phone = \(String(describing: item.phoneNumber))")
+                }
+            }
+        })
+    }
+    
+    func performSearch() {
+        
+        
     }
     
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
