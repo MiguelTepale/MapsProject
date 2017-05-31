@@ -14,8 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     let locationManager = CLLocationManager()
     let annotation = MKPointAnnotation()
-    var bars: [Bar] = []
-    var newSearchEntries: [MKMapItem] = [MKMapItem]()
+    var userResults: [SearchResult] = []
     var tappedBarWebsite = ""
     
     @IBOutlet weak var mapView: MKMapView!
@@ -42,7 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.mapType = .standard
         mapView.showsUserLocation = true
         mapView.addAnnotation(annotation)
-        mapView.addAnnotations(bars)
+        mapView.addAnnotations(userResults)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -71,13 +70,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        performASearch()
         searchBar.resignFirstResponder()
         mapView.removeAnnotations(mapView.annotations)
         performSearch()
     }
     
-    //This function will find local "pizza" places within the area that was previously defined. Entries will be logged to the console.
+    //This function will find local "pizza" locales within the area that was previously defined. Entries will only be logged to the console.
     func performASearch() {
         
         let request = MKLocalSearchRequest()
@@ -103,16 +101,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         })
     }
     
-    func performSearch() {
+    //MIGUEL: Unwrap all optional values that come back fom the search
+    func performSearch(){
         
-        newSearchEntries.removeAll()
+        userResults.removeAll()
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBar.text
         request.region = mapView.region
         
         let search = MKLocalSearch(request: request)
         
-        search.start(completionHandler: {(response, error) in
+        search.start() { response, error in
             
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
@@ -121,22 +120,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             } else {
                 print("Matches found")
                 
-                for item in response!.mapItems {
-                    print("Name = \(String(describing:item.name))")
-                    print("Phone = \(String(describing:item.phoneNumber))")
-                    
-                    self.newSearchEntries.append(item as MKMapItem)
-                    print("Matching items = \(self.newSearchEntries.count)")
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = item.placemark.coordinate
-                    annotation.title = item.name
-                    self.mapView.addAnnotation(annotation)
-                }
+                print("Matching items = \((response!.mapItems.count))")
+                self.userResults = response!.mapItems.flatMap(SearchResult.init)
+                self.mapView.addAnnotations(self.userResults)
+                
+//                for item in response!.mapItems {
+//                    print("Name = \(String(describing:item.name))")
+//                    print("Phone = \(String(describing:item.phoneNumber))")
+//                    print("URL = \(String(describing:item.url))")
+//                    print("Matching items = \((response!.mapItems.count))")
+//
+//                    guard let newAnnotaion = SearchResult(item) else {
+//                        print("Shit happens")
+//                        return
+//                    }
+//                    self.userResults.append(newAnnotaion)
+//                }
+                self.mapView.addAnnotations(self.userResults)
             }
-        })
+        }
     }
-    
+
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
         if fullyRendered && !initialRegionSet {
             let viewRegion = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 700.0, 700.0)
@@ -161,7 +165,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        guard let tappedBar = view.annotation as? Bar else{
+        guard let tappedBar = view.annotation as? SearchResult else{
             print("tappedBar is nil")
             return
         }
@@ -184,6 +188,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //Get first annotation and make sure to allow it to dequeue annotations to optimize memory usage
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "barLocation") as? MKPinAnnotationView
+        //Remove both left and right annotation
+        annotationView?.leftCalloutAccessoryView = nil
+        annotationView?.rightCalloutAccessoryView = nil
         //If annotation is nil, create a new annotationView. Else, once the data has been dequeued, you must update the annotation
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "barLocation")
@@ -193,7 +200,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //Setting data to all pins
         annotationView?.pinTintColor = UIColor.red
         annotationView?.canShowCallout = true
-        if let place = annotation as? Bar, let image = place.image {
+        if let place = annotation as? SearchResult,
+            let image = place.image {
             
             //Left accessory
             let imageView = UIImageView(image: image)
@@ -208,7 +216,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return annotationView
     }
     
+    
+    
     func loadLocalBars() {
+        
         guard let plistUrl = Bundle.main.url(forResource: "BarList", withExtension: "plist"), let pListData = NSData(contentsOf: plistUrl) else { return }
         var format = PropertyListSerialization.PropertyListFormat.xml
         var barEntries: NSArray!
@@ -227,8 +238,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     let image = bar["Image"] as? String,
                     let website = bar["Website"] as? String
                 {
-                    let barEntry = Bar(name: name, imageName: image, latitude: latitude, longitude: longitude, websiteURL: website)
-                    bars.append(barEntry)
+                    let barEntry = SearchResult(name: name, imageName: image, latitude: latitude, longitude: longitude, websiteURL: website)
+                    userResults.append(barEntry)
 
                 }
             }
@@ -246,3 +257,4 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
 }
+

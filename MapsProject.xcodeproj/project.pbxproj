@@ -18,7 +18,8 @@
 		8CB7E3A01ECB645D00CC9720 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */; };
 		8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */; };
 		8CF1A90B1EC6138C00669559 /* BarList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1A90A1EC6138C00669559 /* BarList.plist */; };
-		8CF1A9131EC637BE00669559 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1A9121EC637BE00669559 /* Bar.swift */; };
+		8CF1A9131EC637BE00669559 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1A9121EC637BE00669559 /* SearchResult.swift */; };
+		8CF3332B1EDF20520061CC06 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3332A1EDF20520061CC06 /* menu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,8 @@
 		8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = ../WebViewController.swift; sourceTree = "<group>"; };
 		8CF1A9081EC4BCEC00669559 /* apple-icon-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "apple-icon-180x180.png"; path = "../../../TTT App Curriculum/4-2 MapView/apple-icon-180x180.png"; sourceTree = "<group>"; };
 		8CF1A90A1EC6138C00669559 /* BarList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BarList.plist; sourceTree = "<group>"; };
-		8CF1A9121EC637BE00669559 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		8CF1A9121EC637BE00669559 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		8CF3332A1EDF20520061CC06 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				8C1C74671EC393CB0027A618 /* AppDelegate.swift */,
-				8CF1A9121EC637BE00669559 /* Bar.swift */,
+				8CF1A9121EC637BE00669559 /* SearchResult.swift */,
 				8C1C74691EC393CB0027A618 /* ViewController.swift */,
 				8CB7E39E1ECB645D00CC9720 /* WebViewController.swift */,
 				8C1C746B1EC393CB0027A618 /* Main.storyboard */,
@@ -85,6 +87,7 @@
 		8C1C74791EC39F110027A618 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				8CF3332A1EDF20520061CC06 /* menu.png */,
 				8C0F2B0A1ECA46340059F1E6 /* clintonHill.jpg */,
 				8C0F2B0B1ECA46340059F1E6 /* trinityPlace.jpg */,
 				8C0F2B0C1ECA46340059F1E6 /* wogies.jpg */,
@@ -156,6 +159,7 @@
 			files = (
 				8CF1A9091EC4BCEC00669559 /* apple-icon-180x180.png in Resources */,
 				8C0F2B0E1ECA46340059F1E6 /* trinityPlace.jpg in Resources */,
+				8CF3332B1EDF20520061CC06 /* menu.png in Resources */,
 				8C1C74721EC393CB0027A618 /* LaunchScreen.storyboard in Resources */,
 				8C0F2B0D1ECA46340059F1E6 /* clintonHill.jpg in Resources */,
 				8CF1A90B1EC6138C00669559 /* BarList.plist in Resources */,
@@ -172,7 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF1A9131EC637BE00669559 /* Bar.swift in Sources */,
+				8CF1A9131EC637BE00669559 /* SearchResult.swift in Sources */,
 				8C1C746A1EC393CB0027A618 /* ViewController.swift in Sources */,
 				8C1C74681EC393CB0027A618 /* AppDelegate.swift in Sources */,
 				8CB7E3A01ECB645D00CC9720 /* WebViewController.swift in Sources */,
